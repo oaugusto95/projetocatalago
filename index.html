@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HG Laser Catálogo Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>HG Laser</h1>
+        <p>Veja nossos produtos e faça seu pedido!</p>
+    </header>
+
+    <main class="container">
+        <section class="product-list">
+
+            <div class="product-card">
+                <img src="https://acasadoartista.com.br/media/catalog/product/cache/cd63a08b966d107aaaf66bd74393e948/a/c/acrilex_250ml.jpeg" alt="Produto 1">
+                <h3>Tinta Acrilica</h3>
+                <p class="description">Descrição breve e interessante sobre este incrível produto.</p>
+                <p class="price">R$ 49,90</p>
+                <button class="add-to-cart-btn" data-name="Produto Exemplo 1" data-price="49.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://centralcaixas.com/mdf/wp-content/uploads/2021/12/caixa-de-mdf-artesanato-madeira-crua-20x20x6.jpg" alt="Produto 2">
+                <h3>Caixa MDF 20x20x6</h3>
+                <p class="description">Descrição breve e interessante sobre este incrível produto.</p>
+                <p class="price">R$ 79,90</p>
+                <button class="add-to-cart-btn" data-name="Caixa MDF 20x20x6" data-price="79.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.dooca.store/731/products/pecas-mdf-14_640x640+fill_ffffff.png?v=1709556085&webp=0" alt="Produto 3">
+                <h3>Caixa MDF 30</h3>
+                <p class="description">Descrição breve e interessante sobre este incrível produto.</p>
+                <p class="price">R$ 25,00</p>
+                <button class="add-to-cart-btn" data-name="Produto Exemplo 3" data-price="25.00">Adicionar ao Carrinho</button>
+            </div>
+            
+            </section>
+
+        <aside class="cart">
+            <h2>Meu Carrinho</h2>
+            <div id="cart-items">
+                <p>Seu carrinho está vazio.</p>
+            </div>
+            <p class="total">Total: <span id="cart-total">R$ 0,00</span></p>
+            
+            <div class="observation-box">
+                <label for="observacao">Observações:</label>
+                <textarea id="observacao" rows="3" placeholder="Ex: Embrulhar para presente, etc."></textarea>
+            </div>
+            
+            <button id="checkout-button">Finalizar Pedido no WhatsApp</button>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HG Laser. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
