@@ -4,8 +4,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #FFFFFF;
+    color: #333333;
 }
 
 .container {
@@ -19,10 +19,16 @@ body {
 }
 
 header, footer {
-    background: #f6f3f3;
+    background: #000000;
     color: #100f0f;
     text-align: center;
     padding: 1rem 0;
+}
+
+.logo {
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
 }
 
 /* Lista de Produtos */
@@ -34,7 +40,7 @@ header, footer {
 }
 
 .product-card {
-    background: #fff;
+    background: #F4F5F5F5;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
@@ -64,16 +70,16 @@ header, footer {
 .product-card .price {
     font-size: 1.2em;
     font-weight: bold;
-    color: #008000;
+    color: #E10600;
     margin: 10px 0;
 }
 
 /* Carrinho de Compras */
 .cart {
     flex: 1; /* Ocupa 1/4 do espaço */
-    background: #fff;
+    background: #F5F5F5 ;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #E0E0E0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     height: fit-content;
@@ -93,7 +99,7 @@ header, footer {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #F4F4F4;
 }
 
 #cart-items li span {
@@ -112,8 +118,8 @@ header, footer {
 /* Botões */
 .add-to-cart-btn, #checkout-button {
     display: inline-block;
-    background: #28a745;
-    color: #fff;
+    background: #E10600;
+    color: #F4F4F4;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -125,22 +131,22 @@ header, footer {
 }
 
 .add-to-cart-btn:hover, #checkout-button:hover {
-    background: #218838;
+    background: #E10600;
 }
 
 #checkout-button {
     width: 100%;
     margin-top: 15px;
-    background-color: #007bff;
+    background-color: #E10600;
 }
 
 #checkout-button:hover {
-    background-color: #0056b3;
+    background-color: #00E1060056b3;
 }
 
 .remove-item-btn {
     background: #dc3545;
-    color: white;
+    color: #E0E0E0;
     border: none;
     border-radius: 50%;
     width: 20px;
@@ -164,7 +170,7 @@ header, footer {
 .observation-box textarea {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #E0E0E0;
     border-radius: 4px;
     box-sizing: border-box; /* Garante que padding não afete a largura total */
 }
