@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img src="C:\Users\OswaldoAugustoPinto\Desktop\projeto catalogo\image\hg_laser-removebg-preview.png" alt="Logo HG Laser" class="logo">
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="login.html"><i class="fas fa-user"></i></a></li>
+      <li><a href="carrinho.html" class="ativo"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <aside class="cart">
+            <h2>Meu Carrinho</h2>
+            <div id="cart-items">
+                <p>Seu carrinho está vazio.</p>
+            </div>
+            <p class="total">Total: <span id="cart-total">R$ 0,00</span></p>
+            
+            <div class="observation-box">
+                <label for="observacao">Observações:</label>
+                <textarea id="observacao" rows="3" placeholder="Ex: Embrulhar para presente, etc."></textarea>
+            </div>
+            
+            <button id="checkout-button">Finalizar Pedido no WhatsApp</button>
+        </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Minha Empresa. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+const cartItemsContainer = document.getElementById('cart-items');
+const cartTotalElement = document.getElementById('cart-total');
+
+// Recupera o carrinho do localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Função para atualizar a exibição do carrinho
+function updateCartDisplay() {
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+        cartTotalElement.innerText = 'R$ 0,00';
+        return;
+    }
+
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+
+    const ul = document.createElement('ul');
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>
+                <button class="remove-item-btn" data-name="${item.name}">X</button>
+                ${item.quantity}x ${item.name}
+            </span>
+            <span>R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+        `;
+        ul.appendChild(li);
+        total += item.price * item.quantity;
+    });
+
+    cartItemsContainer.appendChild(ul);
+    cartTotalElement.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+    // Remove itens
+    document.querySelectorAll('.remove-item-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const nameToRemove = e.target.getAttribute('data-name');
+            cart = cart.filter(item => item.name !== nameToRemove);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        });
+    });
+}
+
+// Inicializa a exibição
+updateCartDisplay();
+</script>
+
+
+  <script>
+    // Exemplo simples: remover item
+    const botoesRemover = document.querySelectorAll('.remover');
+    botoesRemover.forEach(botao => {
+      botao.addEventListener('click', () => {
+        botao.closest('tr').remove();
+      });
+    });
+
+  </script>
+</body>
+</html>

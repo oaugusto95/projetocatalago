@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img src="C:\Users\OswaldoAugustoPinto\Desktop\projeto catalogo\image\hg_laser-removebg-preview.png" alt="Logo HG Laser" class="logo">
+  </header>
+
+  <nav class="menu">
+    <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="produtos.html">Produtos</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="login.html"><i class="fas fa-user"></i></a></li>
+    <li><a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a></li>
+  </ul>
+  </nav>
+
+  <main class="container">
+        <section class="product-list">
+
+            <div class="product-card">
+                <img src="https://acasadoartista.com.br/media/catalog/product/cache/cd63a08b966d107aaaf66bd74393e948/a/c/acrilex_250ml.jpeg" alt="Produto 1">
+                <h3>Tinta Acrilica</h3>
+                <p class="description">Descrição breve e interessante sobre este incrível produto.</p>
+                <p class="price">R$ 49,90</p>
+                <button class="add-to-cart-btn" data-name="Produto Exemplo 1" data-price="49.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://centralcaixas.com/mdf/wp-content/uploads/2021/12/caixa-de-mdf-artesanato-madeira-crua-20x20x6.jpg" alt="Produto 2">
+                <h3 class="description-product">Caixa MDF 20x20x6</h3>
+                <p class="description">Descrição breve e interessante sobre este incrível produto.</p>
+                <p class="price">R$ 79,90</p>
+                <button class="add-to-cart-btn" data-name="Caixa MDF 20x20x6" data-price="79.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.dooca.store/731/products/pecas-mdf-14_640x640+fill_ffffff.png?v=1709556085&webp=0" alt="Produto 3">
+                <h3>Caixa MDF 30</h3>
+                <p class="description">Descrição breve e interessante sobre este incrível produto.</p>
+                <p class="price">R$ 25,00</p>
+                <button class="add-to-cart-btn" data-name="Produto Exemplo 3" data-price="25.00">Adicionar ao Carrinho</button>
+            </div>
+            
+            </section>
+    </main>
+
+    <script>
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+// Recupera o carrinho do localStorage ou cria um novo
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+        
+        // Verifica se o item já existe
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+
+        // Salva no localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`${name} adicionado ao carrinho!`);
+    });
+});
+</script>
+
+
+  <footer>
+    <p>&copy; 2025 Minha Empresa. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

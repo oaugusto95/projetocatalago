@@ -25,6 +25,43 @@ header, footer {
     padding: 1rem 0;
 }
 
+.menu {
+  background: #444;
+}
+
+.menu {
+     list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  background: #555;
+  border-radius: 5px;
+}
+
 .logo {
     max-width: 300px;
     margin: 20px auto;
@@ -174,6 +211,136 @@ header, footer {
     border-radius: 4px;
     box-sizing: border-box; /* Garante que padding não afete a largura total */
 }
+
+/* carrosel de imagens */
+.carrossel {
+  position: relative;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.ativo {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+.controles {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+
+.controles span {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.indicadores {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.indicadores .dot {
+  height: 10px;
+  width: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.indicadores .dot.ativo {
+  background: #333;
+}
+
+/* Login */
+
+.login {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-login label {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.form-login input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-login button {
+  margin-top: 20px;
+  padding: 10px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-login button:hover {
+  background: #555;
+}
+
+.form-login p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.form-login p a {
+  color: #444;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-login p a:hover {
+  text-decoration: underline;
+}
+
+
 
 /* Responsividade para Telas Menores */
 @media (max-width: 768px) {

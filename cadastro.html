@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Minha Empresa</h1>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="login.html"><i class="fas fa-user"></i></a></li>
+      <li><a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="cadastro">
+      <h2>Cadastro de Usuário</h2>
+      <form id="registerForm" enctype="multipart/form-data">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <label for="avatar">Foto de Perfil:</label>
+        <input type="file" id="avatar" name="avatar" accept="image/*">
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Minha Empresa. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('registerForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const res = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      if(res.ok){
+        alert(data.msg);
+        window.location.href = 'login.html';
+      } else {
+        alert(data.msg);
+      }
+    });
+  </script>
+</body>
+</html>
